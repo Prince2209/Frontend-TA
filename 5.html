@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        let num = prompt("Enter a number between 0 and 999");
+
+        if (isNaN(num)) {
+            document.write("Not a Number");
+        }
+        else {
+            num = Number(num);
+
+            if (num < 0 || num > 999) {
+                document.write("Out of Range");
+            }
+            else {
+                let ones = ["", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"];
+                let teens = ["Ten", "Eleven", "Twelve", "Thirteen", "Fourteen","Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen"];
+                let tens = ["", "", "Twenty", "Thirty", "Forty", "Fifty",
+                    "Sixty", "Seventy", "Eighty", "Ninety"];
+
+                let words = "";
+
+                if (num >= 100) {
+                    words += ones[Math.floor(num / 100)] + " Hundred ";
+                    num %= 100;
+                }
+
+                if (num >= 20) {
+                    words += tens[Math.floor(num / 10)] + " ";
+                    num %= 10;
+                }
+                else if (num >= 10) {
+                    words += teens[num - 10] + " ";
+                    num = 0;
+                }
+
+                if (num > 0) {
+                    words += ones[num];
+                }
+
+                if (words == "")
+                    words = "Zero";
+
+                document.write(words);
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>
